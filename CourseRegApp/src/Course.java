@@ -42,6 +42,11 @@ public class Course {
         }
     }
 
+    public void displayCourseInfo()
+    {
+        
+    }
+
     @Override
     public String toString()
     {
