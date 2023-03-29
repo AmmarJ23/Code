@@ -1,6 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
 
+        //3 courses
         Course oops6 = new Course("Object-Oriented Programming", "SECJ2154", 4);
         Course ses1 = new Course("Software Engineering", "SECJ2203", 2);
         Course oss5 = new Course("Operating System", "SECR2043", 3);
@@ -9,6 +10,7 @@ public class App {
         System.out.println(oops6.toString());
         System.out.println(ses1.toString());
 
+        //6 new students
         Student s1 = new Student("Alex", "A21EC0001", 21);
         Student s2 = new Student("Bob", "A21EC0002", 22);
         Student s3 = new Student("Charlie", "A21EC0003", 22);
@@ -23,6 +25,7 @@ public class App {
         System.out.println(s5.toString());
         System.out.println(s6.toString());
 
+        //2 lecturers
         Lecturer lect1 = new Lecturer("Gordon", "A0001", "Faculty of Computing");
         Lecturer lect2 = new Lecturer("Hannah", "A0002", "Department of Social Sciences");
 
