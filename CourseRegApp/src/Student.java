@@ -26,6 +26,11 @@ public class Student {
         c.addStudent(this);
     }
 
+    public void displayInfo()
+    {
+        System.out.println("Name: " + name + "\n  MatricNo: " + matricNo + "\n  Age: " + age);
+    }
+
     @Override
     public String toString()
     {

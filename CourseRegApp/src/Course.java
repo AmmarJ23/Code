@@ -3,7 +3,8 @@ public class Course {
     //Properties
     private String name, courseCode;
     private int credit;
-    private Student[] studentList = new Student[40];
+    private final int MAX = 30;
+    private Student[] studentList = new Student[MAX];
     private int studentNum;
 
     //Constructors
@@ -15,14 +16,29 @@ public class Course {
         this.credit = credit;
     }
 
-    public void setName(String name) {this.name = name;}
-    public void setCourseCode(String courseCode) {this.courseCode = courseCode;}
+    //Methods
+    public void setName(String name) {this.name = name;}   
+    public void setCourseCode(String courseCode) {this.courseCode = courseCode;} 
     public void setCredit(int credit) {this.credit = credit;}
 
     public void addStudent(Student s)
     {
-        studentList[studentNum] = s;
-        studentNum++;
+        //if at max capacity, display msg to inform user
+        if (studentNum >= MAX) 
+        {
+            System.out.println("Course is full, unable to add student\n");
+        } else 
+        {
+            studentList[studentNum] = s;
+            studentNum++;
+        }
+    }
+
+    public void displayRegStudents()
+    {
+        for (int i = 0; i < studentNum; i++) {
+            studentList[i].displayInfo();
+        }
     }
 
     @Override
