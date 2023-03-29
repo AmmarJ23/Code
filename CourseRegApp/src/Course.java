@@ -29,6 +29,7 @@ public class Course {
     public String toString()
     {
         return "\nCourseInfo: \n  Name:" + name + "\n  Code:"+ courseCode + "\n  Credit:" + credit;
+        
     }
 }
 
