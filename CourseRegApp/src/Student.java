@@ -28,7 +28,7 @@ public class Student {
 
     public void displayInfo()
     {
-        System.out.println("Name: " + name + "\n  MatricNo: " + matricNo + "\n  Age: " + age);
+        System.out.println(" -Name: " + name + "\n  MatricNo: " + matricNo + "\n  Age: " + age);
     }
 
     @Override
