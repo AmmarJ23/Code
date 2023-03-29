@@ -36,6 +36,8 @@ public class App {
         s1.regCourse(oops6);
         s2.regCourse(oops6);
         s3.regCourse(oops6);
+        s4.regCourse(oops6);
+        s5.regCourse(oops6);
 
         oops6.displayRegStudents();
         
