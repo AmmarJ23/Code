@@ -36,6 +36,7 @@ public class Course {
 
     public void displayRegStudents()
     {
+        System.out.println("\n\nStudents Registered to " + name);
         for (int i = 0; i < studentNum; i++) {
             studentList[i].displayInfo();
         }
