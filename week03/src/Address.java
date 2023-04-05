@@ -1,3 +1,5 @@
 public class Address {
-    public String addressLine1;
+    String addressLine1;
+
+    public Address(String a){this.addressLine1 = a;}
 }
