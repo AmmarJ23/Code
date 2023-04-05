@@ -74,6 +74,6 @@ public class Person {
     @Override
     public String toString() {
         return "Person info : \nname = " + this.name + " yob : " + this.yob + " \nweight : " + this.weight
-                + " height : " + this.height + " \nbmi : " + this.bmi;
+                + " height : " + this.height + " \nbmi : " + this.bmi + this.addr;
     }
 }
