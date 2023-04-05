@@ -1,5 +1,10 @@
 public class Address {
-    String addressLine1;
+    int homeNum;
+    String streetAddress;
 
-    public Address(String a){this.addressLine1 = a;}
+    public Address(int hN, String sA)
+    {
+        this.homeNum = hN;
+        this.streetAddress = sA;
+    }
 }
