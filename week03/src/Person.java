@@ -5,7 +5,7 @@ public class Person {
     Address addr;
 
 
-    // constructors (2)
+    // constructors (3)
     public Person() {
     }
 
@@ -16,6 +16,17 @@ public class Person {
         this.weight = w;
         this.height = h;
         this.addr = addr;
+    }
+
+    public Person(String n, int a, float w, float h, int hN, String sA)
+    {
+        this.name = n;
+        this.yob = a;
+        this.weight = w;
+        this.height = h;
+        // addr.setHomeNum(hN);
+        // addr.setStreetAddress(sA);
+        addr = new Address(hN, sA);    
     }
 
 
