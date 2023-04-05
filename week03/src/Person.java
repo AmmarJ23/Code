@@ -26,8 +26,6 @@ public class Person
         this.yob = a;
         this.weight = w;
         this.height = h;
-        // addr.setHomeNum(hN);
-        // addr.setStreetAddress(sA);
         addr = new Address(hN, sA);    
     }
 
