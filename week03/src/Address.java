@@ -22,4 +22,17 @@ public class Address {
     {
         return "\nHome Number: " + homeNum + "\nStreet Address: " + streetAddress;
     }
+
+    public boolean equals(Address addrObj)
+    {
+        if(this.homeNum == addrObj.homeNum)
+        {
+            if(this.streetAddress == addrObj.streetAddress) 
+                return true;
+            else 
+                return false;
+        }
+        else
+            return false;
+    }
 }

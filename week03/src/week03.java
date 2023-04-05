@@ -6,6 +6,18 @@ public class week03 {
         Person p2 = new Person("Abu", 2000, 66, 1.66f, 23, "Jalan Kilang");
         p1.calcBmi();
         p2.calcBmi();
+
+        Address addr1 = new Address(1, "St1");
+        Address addr2 = new Address(1, "St1");
+
+        // addr1 = addr2;
+
+        if (addr1.equals(addr2)) 
+        {
+            System.out.println("2 Addresses are equal\n\n");
+        }
+
+
         System.out.println(p1.toString());
         System.out.println("\n");
         System.out.println(p2.toString());
