@@ -25,6 +25,10 @@ public class Address {
 
     public boolean equals(Address addrObj)
     {
+
+        if(this == addrObj)
+            return true;
+
         if(this.homeNum == addrObj.homeNum)
         {
             if(this.streetAddress == addrObj.streetAddress) 
