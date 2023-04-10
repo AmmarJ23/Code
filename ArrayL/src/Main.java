@@ -61,6 +61,7 @@ public class Main {
         //scanner test
         String name = s.nextLine();
         System.out.println(name);
+        
         float fNum2[] = new float[10];
         int i=0;
 
@@ -72,11 +73,27 @@ public class Main {
             i++;
         }
 
-        for (float f : fNum2) 
-        {
-            System.out.println(f);
-        }
+        displayAll(fNum2);
+        displayAll(cArray);
 
         s.close();
+    }
+
+    //pass array to method (float)
+    private static void displayAll(float[] fArray)
+    {
+        for (float f : fArray) 
+        {
+            System.out.println(f);  
+        }
+    }
+
+    //pass array to method (char)
+    private static void displayAll(char[] cArray)
+    {
+        for (char c : cArray) 
+        {
+            System.out.println(c);    
+        }
     }
 }
