@@ -35,11 +35,6 @@ public class Main {
         index=0;
         for (float fVal: fNum)
         {
-            if(max < fVal) 
-            {
-                max = fVal;
-                maxIndex = index;
-            }   
             
             if (min > fVal)
             {
@@ -50,14 +45,14 @@ public class Main {
         }
 
         //Print out all information
-        System.out.println("\nLargest Element in fNum is " + max + " at index[" + maxIndex + "]");
-        System.out.println("Smallest Element in fNum is " + min + " at index[" + minIndex + "]");
+        // System.out.println("\nLargest Element in fNum is " + max + " at index[" + maxIndex + "]");
+        // System.out.println("Smallest Element in fNum is " + min + " at index[" + minIndex + "]");
         
         System.out.println("\n");
 
         //scanner test
-        String name = s.nextLine();
-        System.out.println(name);
+        // String name = s.nextLine();
+        // System.out.println(name);
 
         float fNum2[] = new float[10];
         int i=0;
@@ -76,10 +71,19 @@ public class Main {
         float result = sumMethod(fNum2);
         System.out.println("Sum is :" + result);
 
+        float maxE = findMax(fNum);
+        System.out.println("Largest Element is: " + maxE);
+
+        maxIndex = findMaxIndex(fNum);
+        System.out.println("Index of largest element is  :" + maxIndex);
+
+        minIndex = findMinIndex(fNum);
+        System.out.println("Index of smallest elemetn is :" + minIndex);
+
         s.close();
     }
 
-    //pass array to method (float)
+    //-----------------------------------pass array to method (float)-----------------------------------//
     private static void displayAll(float[] fArray)
     {
         for (float f : fArray) 
@@ -88,7 +92,7 @@ public class Main {
         }
     }
 
-    //pass array to method (char)
+    //-----------------------------------pass array to method (char)-----------------------------------//
     private static void displayAll(char[] cArray)
     {
         for (char c : cArray) 
@@ -97,10 +101,59 @@ public class Main {
         }
     }
 
+    //-----------------------------------sum method-----------------------------------//
     private static float sumMethod(float[] fArray)
     {
         float sum = 0f;
-        for (float fVal: fArray) sum += fVal;
+        for (float fVal: fArray) 
+        {
+            sum += fVal;   
+        }
         return sum;
+    }
+
+    //-----------------------------------Find max Element method-----------------------------------//
+    private static float findMax(float[] fArray)
+    {
+        float max = 0f;
+        for (float f : fArray) {
+            if(max < f)
+            {
+                max = f;
+            }
+        }
+        return max;
+    }
+
+    //-----------------------------------Find max Element index method-----------------------------------//
+    private static int findMaxIndex(float[] fArray)
+    {
+        float max = 0f;
+        int maxIndex=0, index=0;
+        for (float f : fArray) {
+            if(max < f)
+            {
+                f = max;
+                maxIndex = index;
+            }
+            index++;
+        }
+        return maxIndex;
+    }
+
+    //-----------------------------------Find mix Element index method-----------------------------------//
+    private static int findMinIndex(float[] fArray)
+    {
+        float min = 0f;
+        int minIndex=0, index=0;
+        for (float f : fArray) {
+            if(min > f)
+            {
+                f = min;
+                minIndex = index;
+            }
+            index++;
+        }
+        return minIndex;
     }
 }
