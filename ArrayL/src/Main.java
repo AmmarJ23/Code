@@ -6,7 +6,6 @@ public class Main {
         int[] intArray;
         intArray = new int[10];
         float fNum[] = {34.5f, 12.5f, 11.2f, 15.0f, -10.5f, 101f, -1f};
-        float sum = 0f;
         char[] cArray = {'a', 'e', 'i', 'o', 'u'};
         Scanner s = new Scanner(System.in);
 
@@ -24,8 +23,6 @@ public class Main {
         System.out.println("\n");
 
         for (char cVal: cArray) System.out.println(cVal);
-
-        for (float fVal: fNum) sum += fVal;
 
         //find largest element and its index
         float max = fNum[0];
@@ -55,13 +52,13 @@ public class Main {
         //Print out all information
         System.out.println("\nLargest Element in fNum is " + max + " at index[" + maxIndex + "]");
         System.out.println("Smallest Element in fNum is " + min + " at index[" + minIndex + "]");
-        System.out.println("Sum of fNum: " + sum);
+        
         System.out.println("\n");
 
         //scanner test
         String name = s.nextLine();
         System.out.println(name);
-        
+
         float fNum2[] = new float[10];
         int i=0;
 
@@ -75,6 +72,9 @@ public class Main {
 
         displayAll(fNum2);
         displayAll(cArray);
+
+        float result = sumMethod(fNum2);
+        System.out.println("Sum is :" + result);
 
         s.close();
     }
@@ -95,5 +95,12 @@ public class Main {
         {
             System.out.println(c);    
         }
+    }
+
+    private static float sumMethod(float[] fArray)
+    {
+        float sum = 0f;
+        for (float fVal: fArray) sum += fVal;
+        return sum;
     }
 }
