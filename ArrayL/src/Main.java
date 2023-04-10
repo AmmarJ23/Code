@@ -42,7 +42,8 @@ public class Main {
             {
                 max = fVal;
                 maxIndex = index;
-            }            
+            }   
+            
             if (min > fVal)
             {
                 min = fVal;
