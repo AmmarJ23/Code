@@ -31,15 +31,6 @@ public class Main {
         float max = fNum[0];
         int maxIndex = 0;
         int index = 0;
-        for (float fVal: fNum)
-        {
-            if(max < fVal) 
-            {
-                max = fVal;
-                maxIndex = index;
-            }
-            index++;
-        }
 
         //find smallest element and its index
         float min = fNum[0];
@@ -47,6 +38,11 @@ public class Main {
         index=0;
         for (float fVal: fNum)
         {
+            if(max < fVal) 
+            {
+                max = fVal;
+                maxIndex = index;
+            }            
             if (min > fVal)
             {
                 min = fVal;
