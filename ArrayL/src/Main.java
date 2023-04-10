@@ -1,11 +1,14 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         //Initialise variables & Arrays
         int[] intArray;
         intArray = new int[10];
-        float fNum[] = {35f, 10f, 13f, 14f, 15f, 19f, -10f, 12.5f, -13.6f};
+        float fNum[] = {34.5f, 12.5f, 11.2f, 15.0f, -10.5f, 101f, -1f};
         float sum = 0f;
         char[] cArray = {'a', 'e', 'i', 'o', 'u'};
+        Scanner s = new Scanner(System.in);
 
         //Array for loop testing
         for (int i = 0; i < 10; i++) intArray[i] = i;
@@ -58,5 +61,25 @@ public class Main {
         System.out.println("Sum of fNum: " + sum);
         System.out.println("\n");
 
+        //scanner test
+        String name = s.nextLine();
+        System.out.println(name);
+        float fNum2[] = new float[10];
+        int i=0;
+
+        for (float temp : fNum2) 
+        {
+            System.out.println("Enter the value: ");    
+            temp = s.nextFloat();
+            fNum2[i] = temp;
+            i++;
+        }
+
+        for (float f : fNum2) 
+        {
+            System.out.println(f);
+        }
+
+        s.close();
     }
 }
