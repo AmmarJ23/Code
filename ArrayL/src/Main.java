@@ -25,7 +25,7 @@ public class Main {
         for (char cVal: cArray) System.out.println(cVal);
 
         //find largest element and its index
-        float max = fNum[0];
+        // float max = fNum[0];
         int maxIndex = 0;
         int index = 0;
 
@@ -55,15 +55,15 @@ public class Main {
         // System.out.println(name);
 
         float fNum2[] = new float[10];
-        int i=0;
+        // int i=0;
 
-        for (float temp : fNum2) 
-        {
-            System.out.println("Enter the value: ");    
-            temp = s.nextFloat();
-            fNum2[i] = temp;
-            i++;
-        }
+        // for (float temp : fNum2) 
+        // {
+        //     System.out.println("Enter the value: ");    
+        //     temp = s.nextFloat();
+        //     fNum2[i] = temp;
+        //     i++;
+        // }
 
         displayAll(fNum2);
         displayAll(cArray);
@@ -79,6 +79,14 @@ public class Main {
 
         minIndex = findMinIndex(fNum);
         System.out.println("Index of smallest elemetn is :" + minIndex);
+
+        System.out.println("\n\n");
+
+        displayAll(fNum);
+        System.out.println("\n\n");
+        swapValue(fNum[0], fNum[fNum.length-1]);
+        swapValue2(fNum);
+        displayAll(fNum);
 
         s.close();
     }
@@ -155,5 +163,23 @@ public class Main {
             index++;
         }
         return minIndex;
+    }
+
+    //------------------------------------Swap value method-----------------------------------------//
+    private static void swapValue(float e1, float e2)
+    {
+        float temp1=e1;
+        e1 = e2;
+        e2 = temp1;
+    } //doesn't work - pass-by-value only
+
+    //------------------------------------Swap value method-----------------------------------------//
+    private static void swapValue2(float[] fArray)
+    {
+        float temp1 = fArray[0];
+        float temp2 = fArray[fArray.length-1];
+
+        fArray[0] = temp2;
+        fArray[fArray.length-1] = temp1;
     }
 }
