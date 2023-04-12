@@ -52,13 +52,13 @@ public class AppArray2D {
         }
 
         //Task 4: for loop to ask for user input
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter double values:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                cmas[i][j] = s.nextDouble();
-            }
-        }
+        // Scanner s = new Scanner(System.in);
+        // System.out.println("Enter double values:");
+        // for (int i = 0; i < 3; i++) {
+        //     for (int j = 0; j < 5; j++) {
+        //         cmas[i][j] = s.nextDouble();
+        //     }
+        // }
 
         //for loop to output array
         System.out.println("Content of cmas 2D array");
@@ -69,12 +69,12 @@ public class AppArray2D {
         }
 
         //Task 3: Enhanced for loop to show content of cmas
-        System.out.println("Content of cmas 2D array");
-        for (double[] row : cmas) {
-            for (double elem : row) {
-                System.out.println(elem);
-            }
-        }
+        // System.out.println("Content of cmas 2D array");
+        // for (double[] row : cmas) {
+        //     for (double elem : row) {
+        //         System.out.println(elem);
+        //     }
+        // }
 
         //Task 5: Get sum of each student
         double sum=0;
@@ -83,9 +83,30 @@ public class AppArray2D {
                 sum += elem;
             }
         }
-
         System.out.println("Sum of student course marks: " + sum);
-        s.close();
+
+
+        //Task 6: Find student with highest course mark, print the index
+        int maxIndexI=0, maxIndexK=0, indexI=0, indexK=0;
+        double maxVal = cmas[0][0];
+        for (double[] row : cmas) {
+            for (double elem : row) {
+                if(maxVal < elem)
+                {
+                    maxVal = elem;
+                    maxIndexI = indexI;
+                    maxIndexK = indexK;
+                }
+                indexK++;
+            }
+            indexI++;
+            indexK=0;
+        }
+
+        System.out.println("Highest course mark   : " + maxVal); 
+        System.out.println("Index of highest mark : [" + maxIndexI + "][" + maxIndexK + "]"); 
+
+        // s.close();
 
     }
 }
