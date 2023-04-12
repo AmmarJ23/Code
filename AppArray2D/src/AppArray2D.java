@@ -75,6 +75,16 @@ public class AppArray2D {
                 System.out.println(elem);
             }
         }
+
+        //Task 5: Get sum of each student
+        double sum=0;
+        for (double[] row : cmas) {
+            for (double elem : row) {
+                sum += elem;
+            }
+        }
+
+        System.out.println("Sum of student course marks: " + sum);
         s.close();
 
     }
