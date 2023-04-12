@@ -7,7 +7,9 @@ public class AppArray2D {
         double[] courseMark = { 4.5, 4.0, 16.5, 15.0, 7.5 };
 
 
-        double[][] courseMarkAllStud;
+        double[][] courseMarkAllStud = new double [3][5];
+
+        System.out.println("CourseMarkAllStud: " + courseMarkAllStud);
 
 
         for (double cm : courseMark) {
