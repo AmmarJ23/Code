@@ -62,11 +62,19 @@ public class AppArray2D {
 
         //for loop to output array
         System.out.println("Content of cmas 2D array");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < cmas.length; i++) {
+            for (int j = 0; cmas[i].length < 5; j++) {
                 System.out.println("["+i+"]["+j+"]: " + cmas[i][j]);
             }
         }
+
+        System.out.println("Content of cmas 2D array");
+        for (double[] row : cmas) {
+            for (double elem : row) {
+                System.out.println(elem);
+            }
+        }
         s.close();
+
     }
 }
