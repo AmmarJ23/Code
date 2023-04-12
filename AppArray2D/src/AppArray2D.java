@@ -68,6 +68,7 @@ public class AppArray2D {
             }
         }
 
+        //Task 3: Enhanced for loop to show content of cmas
         System.out.println("Content of cmas 2D array");
         for (double[] row : cmas) {
             for (double elem : row) {
