@@ -23,9 +23,20 @@ public class Student {
         return matricNo;
     }
 
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public void setMatricNo(String matricNo) {
+        this.matricNo = matricNo;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override  
     public String toString() {
-
-        return "Name: " + name + "\nMatric No: " + matricNo + "\nGender: " + gender;
+        return "Name: " + getName() + "\nMatric No: " + getMatricNo() + "\nGender: " + getGender();
     }
 }

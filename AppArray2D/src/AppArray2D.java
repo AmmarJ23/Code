@@ -16,6 +16,8 @@ public class AppArray2D {
         Student s9 = new Student("David Chen", "I2122", 'M');
         Student s10 = new Student("Olivia Wilson", "J2324", 'F');
 
+        s1.toString();
+
         sList[0] = s1;
         sList[1] = s2;
         sList[2] = s3;
@@ -27,8 +29,13 @@ public class AppArray2D {
         sList[8] = s9;
         sList[9] = s10;
 
+        int i=1;
         for (Student student : sList) {
-            student.toString();
+            
+            System.out.println("\nStudent " + i +": ");
+            System.out.println(student.toString());
+            i++;
+            
         }
     }
 }
