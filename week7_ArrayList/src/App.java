@@ -1,3 +1,8 @@
+// Name             : Ammar bin Jamalludin
+// Matric No.       : A21EC0160
+// Course - Section : SECJ2154 - 06
+// Title            : Assignment Week 7 (ArrayList)
+
 import java.util.ArrayList;
 
 public class App {
@@ -66,11 +71,10 @@ public class App {
         System.out.println("Lowest Temperature  : " + lowest);
         System.out.println("Average temperature : " + avg);
 
-        //---------------------------------------------------------------------//
+        //--------------------------------Class Implementation---------------------------------//
 
         ArrayList <TempRecord> townList = new ArrayList<>();
 
-        townList.add(new TempRecord("Town1", 27.2, "Sunny"));
         townList.add(new TempRecord("New York", 18.5, "Partly cloudy"));
         townList.add(new TempRecord("Los Angeles", 25.3, "Sunny"));
         townList.add(new TempRecord("London", 9.2, "Rainy"));
@@ -90,7 +94,8 @@ public class App {
         //get highest
         TempRecord highestElement = townList.get(0);
         for (int i = 0; i < townList.size(); i++) {
-            if(highestElement.getTemperature() < townList.get(i).getTemperature())
+            TempRecord currTown = townList.get(i);
+            if(highestElement.getTemperature() < currTown.getTemperature())
             {
                 highestElement = townList.get(i);
             }
@@ -98,8 +103,9 @@ public class App {
 
         //get highest
         TempRecord lowestElement = townList.get(0);
-        for (int i = 0; i > townList.size(); i++) {
-            if(lowestElement.getTemperature() < townList.get(i).getTemperature())
+        for (int i = 0; i < townList.size(); i++) {
+            TempRecord currTown = townList.get(i);
+            if(lowestElement.getTemperature() > currTown.getTemperature())
             {
                 lowestElement = townList.get(i);
             }
@@ -112,13 +118,44 @@ public class App {
             sumList+= tR.getTemperature();
         }
 
-        avgList = sumList/15;
+        avgList = sumList / townList.size();
 
         //print out values
-        System.out.println(townList.toString());
+        // System.out.println(townList.toString());
         System.out.println("\nTown with highest temperature: " + highestElement.toString());
         System.out.println("Town with lowest temperature: " + lowestElement.toString());
         System.out.println("Average temperature: " + avgList);
 
+
+        for (int i = 0; i < townList.size(); i++) {
+            TempRecord tempObj = townList.get(i);
+
+            if(tempObj == highestElement)
+            {
+                townList.get(i).setRemark("Highest Temperature");
+            }
+            else if(tempObj == lowestElement)
+            {
+                townList.get(i).setRemark("Lowest Temperature");
+            }
+            else
+            {
+                if(tempObj.getTemperature() == avgList)
+                {
+                    townList.get(i).setRemark("About Average");
+                }
+                else if(tempObj.getTemperature() < avgList)
+                {
+                    townList.get(i).setRemark("Below Average");
+                }
+                else
+                {
+                    townList.get(i).setRemark("Above Average");
+                } 
+            }
+
+
+        }
+        System.out.println(townList.toString());
     }
 }

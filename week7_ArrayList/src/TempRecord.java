@@ -1,3 +1,8 @@
+// Name             : Ammar bin Jamalludin
+// Matric No.       : A21EC0160
+// Course - Section : SECJ2154 - 06
+// Title            : Assignment Week 7 (ArrayList)
+
 public class TempRecord {
     private String name;
     private Double temperature;
