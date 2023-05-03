@@ -11,10 +11,11 @@ public class App {
         vname.add(1, "alice");
         vname.set(2, "bob");
 
-        vname.remove(1);
+        Boolean result = vname.remove("ali"); //returns removed string/element
 
-
+        System.out.println(result);
         System.out.println("vname size: " + vname.size()); //print current vector size
         System.out.println(vname); //print all elements
+        System.out.println(vname.elementAt(0));
     }
 }
