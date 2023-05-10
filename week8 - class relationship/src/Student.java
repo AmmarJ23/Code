@@ -20,6 +20,7 @@ public class Student {
         if (numSubject < 6) {
             courseList.add(c);
             c.addStudent(this); //add student to course
+            numSubject++;
         }else {
             System.out.println("Can't register more than 6 courses");
         }
@@ -30,6 +31,7 @@ public class Student {
     {
         courseList.remove(c);
         c.removeStudent(this);
+        numSubject--;
     }
 
     //return student name
