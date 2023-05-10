@@ -14,4 +14,6 @@ public class Faculty {
     public void setName(String name) {
         this.name = name;
     }
+
+    
 }
