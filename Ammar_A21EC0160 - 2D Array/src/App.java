@@ -4,7 +4,9 @@
 
 public class App {
     public static void main(String[] args) throws Exception {
-        char [][] table  = new char [3][4];
+
+        //answer 1a
+        char [][] table  = new char [3][];
         table[0] = new char[] {'A', 'B', 'C', 'D'};
         table[1] = new char[] {'M', 'M'};
         table[2] = new char[] {'Z', 'Y', 'X'};
