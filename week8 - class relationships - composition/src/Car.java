@@ -8,6 +8,9 @@ public class Car {
     private String model;
 
 
+    private Person p1;
+
+
     //constructor
     public Car(String make, String model, Chassis c, Engine e, Wheel w[]) {
         // chassis = new Chassis();
