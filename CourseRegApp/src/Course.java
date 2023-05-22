@@ -6,6 +6,7 @@ public class Course {
     private final int MAX = 30;
     private Student[] studentList = new Student[MAX];
     private int studentNum;
+    Lecturer lecturer;
 
     //Constructors
     public Course() {studentNum = 0;}
@@ -20,6 +21,10 @@ public class Course {
     public void setName(String name) {this.name = name;}   
     public void setCourseCode(String courseCode) {this.courseCode = courseCode;} 
     public void setCredit(int credit) {this.credit = credit;}
+
+    public String getName() {return name;}
+    public String getCourseCode() {return courseCode;}
+    public int getCredit() {return credit;}
 
     public void addStudent(Student s)
     {
@@ -53,4 +58,5 @@ public class Course {
         return "\nCourseInfo: \n  Name:" + name + "\n  Code:"+ courseCode + "\n  Credit:" + credit;
         
     }
+    
 }

@@ -1,25 +1,25 @@
-public class Lecturer {
+public class Lecturer extends Person{
 
     //Properties
-    private String name, staffNo, dept;
+    private String dept;
     
     //Constructors
     public Lecturer(){}
-    public Lecturer(String name, String staffNo, String dept)
+    public Lecturer(String name, String ID, String dept)
     {
         this.name = name;
-        this.staffNo = staffNo;
+        this.ID = ID;
         this.dept = dept;
     }
 
     public void setName(String name) {this.name = name;}
-    public void setStaffNo(String staffNo) {this.staffNo = staffNo;}
+    public void setStaffNo(String ID) {this.ID = ID;}
     public void setDept(String dept) {this.dept = dept;}
 
 
     @Override
     public String toString()
     {
-        return "\nLecturer Info: \n  Name: " + name + "\n  StaffNo: " + staffNo + "\n  Department: " + dept;
+        return "\nLecturer Info: \n  Name: " + name + "\n  StaffNo: " + ID + "\n  Department: " + dept;
     }
 }

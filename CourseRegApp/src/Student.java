@@ -1,22 +1,20 @@
-public class Student {
+public class Student extends Person {
     
     //Properties
-    private String name, matricNo;
-    private int age;
     private Course[] courseList = new Course[6];
     private int courseNum;
     
     //Constructors
     public Student(){courseNum = 0;};
-    public Student(String name, String matricNo, int age)
+    public Student(String name, String ID, int age)
     {
         this.name = name;
-        this.matricNo = matricNo;
+        this.ID = ID;
         this.age = age;
     }
 
     public void setName(String name) {this.name = name;}
-    public void setMatricNo(String matricNo) {this.matricNo = matricNo;}
+    public void setID(String ID) {this.ID = ID;}
     public void setAge(int age) {this.age = age;}
 
     public void regCourse(Course c)
@@ -28,13 +26,13 @@ public class Student {
 
     public void displayInfo()
     {
-        System.out.println(" -Name: " + name + "\n  MatricNo: " + matricNo + "\n  Age: " + age);
+        System.out.println(" -Name: " + name + "\n  MatricNo: " + ID + "\n  Age: " + age);
     }
 
     @Override
     public String toString()
     {
-        return "\nStudent Info: \n  Name: " + name + "\n  MatricNo: " + matricNo + "\n  Age: " + age;
+        return "\nStudent Info: \n  Name: " + name + "\n  MatricNo: " + ID + "\n  Age: " + age;
     }
 
 }
