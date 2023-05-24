@@ -12,8 +12,7 @@ public class AcadOfficeStaff extends Person {
 
     //Methods
     public Course createCourse(){
-        String courseName, courseCode;
-        int courseCredit;
+        String courseName, courseCode, courseCredit;
         Scanner s = new Scanner(System.in);
         
         System.out.println("Course Name: ");
@@ -21,9 +20,11 @@ public class AcadOfficeStaff extends Person {
         System.out.println("Course Code: ");
         courseCode = s.nextLine();
         System.out.println("Course Credit: ");
-        courseCredit = s.nextInt();
+        courseCredit = s.nextLine();
 
-        Course tempCourse = new Course(courseName, courseCode, courseCredit);
+        int parseCredit = Integer.parseInt(courseCredit);
+
+        Course tempCourse = new Course(courseName, courseCode, parseCredit);
         
         s.close();
         return tempCourse;

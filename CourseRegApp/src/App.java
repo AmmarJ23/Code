@@ -8,20 +8,25 @@ public class App {
         Student s1 = new Student("Bob", "A21EC0001", 20);
         ArrayList<Course> courseList = new ArrayList<>();
         Course tempCourse = null;
+        Scanner choiceScan = new Scanner(System.in);
+
 
         //create course
         tempCourse = aStaff1.createCourse();
         courseList.add(tempCourse);
 
         //register course
-        int choice = 0;
+        String choice = null;
         int i = 0;
         for (Course c : courseList) {
             System.out.println("["+ i +"] : " + c.getName());
             i++;
         }
         System.out.println("Choose course: ");
-        s1.regCourse(courseList.get(choice));
+        choice = choiceScan.nextLine();
+        choiceScan.nextLine();
+
+        choiceScan.close();
 
         return;
     }
