@@ -21,13 +21,7 @@ public class acadStaff extends Person{
         credit = s.nextLine();
 
         courseList.add(new Course(name, code, credit));
-
-
-
-
-        
-
-        s.close();
     }
+
 
 }

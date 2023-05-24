@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Student extends Person {
+
+    private static ArrayList<Course> regCourses = new ArrayList<>();
+
     //constructor
     public Student(){}
     public Student(String name, String ID){
@@ -17,7 +20,48 @@ public class Student extends Person {
         this.ID = s.nextLine();
 
         stdList.add(this);
-        s.close();
     }
 
+    public static void registerCourse(ArrayList<Course> courseList) {
+        String cCode;
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter course code: ");
+        cCode = s.nextLine();
+        boolean found = false;
+
+        for (Course course : courseList) {
+            if (course.getCcode().equals(cCode)) {
+                regCourses.add(course);
+                found = true;
+                System.out.println(cCode + " added");
+                break; // Exit the loop since the course is found
+            }
+        }
+
+        if (!found) {
+            System.out.println("Course does not exist");
+        }
+    }
+
+    public static void withdrawCourse() {
+        String cCode;
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter course code: ");
+        cCode = s.nextLine();
+
+        boolean found = false;
+        for (Course course : regCourses) {
+            if (course.getCcode().equals(cCode)) {
+                regCourses.remove(course);
+                System.out.println(cCode + " withdrawn");
+                found = true;
+                break; // Exit the loop since the course is withdrawn
+            }
+        }
+
+        if (!found) {
+            System.out.println("Course is not registered");
+        }
+    }
 }
+
