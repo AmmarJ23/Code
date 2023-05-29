@@ -31,6 +31,8 @@ public class App {
 }
 
 interface Move{
+    double speed = 10.5; //final double speed = 10.5
+
     void normalMove();
     void panicMove();
     void alternativeMove();
