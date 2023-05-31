@@ -1,3 +1,9 @@
+/*
+ * Name         : Ammar bin Jamalludin
+ * Matric No.   : A21EC0160
+ * Question     : 2
+ */
+
 public class TestCustomer {
     public static void main(String[] args) {
         Customer c1 =  new Customer("Alice", "456", "No. 6, KTC UTM, Johor", "011-7123987");

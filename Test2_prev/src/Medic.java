@@ -1,11 +1,12 @@
-import java.util.ArrayList;
-//Array_List -> ArrayList
-
 /*
  * Name         : Ammar bin Jamalludin
  * Matric No.   : A21EC0160
  * Question     : 1
  */
+
+
+import java.util.ArrayList;
+//Array_List -> ArrayList
 
 public class Medic {
     public static void main(String[] args) {

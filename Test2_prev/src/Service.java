@@ -1,3 +1,9 @@
+/*
+ * Name         : Ammar bin Jamalludin
+ * Matric No.   : A21EC0160
+ * Question     : 2
+ */
+
 public class Service extends Item{
     private double man_hours;
 
