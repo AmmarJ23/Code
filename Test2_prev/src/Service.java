@@ -7,8 +7,8 @@
 public class Service extends Item{
     private double man_hours;
 
-    public Service(String name, double price, double man_hours) {
-        super(name, price);
+    public Service(String name, double man_hours) {
+        super(name, 15);
         this.man_hours = man_hours;
     }
 
