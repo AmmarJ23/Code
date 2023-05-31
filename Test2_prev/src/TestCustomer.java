@@ -17,6 +17,4 @@ public class TestCustomer {
         System.out.println("");
 
     }
-
-
 }
