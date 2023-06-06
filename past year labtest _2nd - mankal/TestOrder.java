@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Vector;
+import java.util.ArrayList;
 
 class Coffee
 {
@@ -43,7 +42,7 @@ class DiscountedItem extends Coffee
 
 	public DiscountedItem(String id, String n, double p, double r)
 	{
-		super(id, n , p);
+		super(id, n, p);
   		discRate = r;
 	}
 
@@ -60,7 +59,7 @@ class Customer
 
 	public Customer(String n)
 	{
-			customerName = n;
+		customerName = n;
 	}
 
 	public String getName()
@@ -76,9 +75,8 @@ class CoffeeOrder
 	private Customer customer;
 	private Coffee item;
 
-	public CoffeeOrder(int id, Customer c, Coffee i,int u)
+	public CoffeeOrder(int id, Customer c, Coffee i, int u)
 	{
-
 		customer = c;
 		orderId = id;
 		item = i;
@@ -87,12 +85,12 @@ class CoffeeOrder
 
 	public double calcTotalPrice(Coffee item)
 	{
-  		return item.getPrice()*unit;
+  		return this.item.getPrice()*unit;
   	}
 
 	public String toString()
 	{
-		return "\nOrder ID: " +orderId+"\nCustomer Name: "+customer.getName()+"\nFlavour: " +item.getFlavour()+ "\nQuantity: " +unit+"\nPrice per Unit: "+item.getPrice()+"\nTotal Price: " +calcTotalPrice(item);
+		return "\nOrder ID: " +orderId+"\nCustomer Name: "+this.customer.getName()+"\nFlavour: " +this.item.getFlavour()+ "\nQuantity: " +unit+"\nPrice per Unit: "+this.item.getPrice()+"\nTotal Price: " +calcTotalPrice(item);
 	}
 }
 
@@ -118,17 +116,17 @@ public class TestOrder
 
 		 for (int i = 0; i < menu.size(); i++)
 	 	 {
-			menu.get(i).display();
+			menu.elementAt(i).display();
 		 }
 
 	 	 System.out.println("************************************");
 
          Customer [] c= new Customer[3];
-         c[0] = new Customer("Arif");
+         c[0] = new Customer("Myoui");
          c[1] = new Customer("Hakim");
          c[2] = new Customer("Nuha");
 
-        ArrayList<Object> order = new ArrayList<Object>();
+        ArrayList<CoffeeOrder> order = new ArrayList<>();
 
 		order.add(new CoffeeOrder(1, c[0],myCoffee,2));
 		order.add(new CoffeeOrder(2, c[1],yourCoffee,3));
@@ -138,7 +136,7 @@ public class TestOrder
 
 		for (int i = 0; i < order.size(); i++)
 		{
-			System.out.println(((CoffeeOrder) order.get(i)).toString());
+			System.out.println((order.get(i).toString()));
 		}
 	}
 }
