@@ -13,12 +13,14 @@ public class App {
             System.out.println("Your selection is "  + selection);
             
         } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
+            // nfe.printStackTrace();
             System.out.println("Invalid input format");
         }
         finally{
-            System.out.println("Statement inside finnaly block is executed");
+            System.out.println("Statement inside finally block is executed");
         }
+
+        System.out.println("Statement outside try-catch-finally is executed");
 
     }
 }
