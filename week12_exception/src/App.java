@@ -1,26 +1,48 @@
 import java.util.Scanner;
 
-public class App {
-    public static void main(String[] args) throws Exception {
-        int selection;
-        System.out.println("Hello, World");
+class UI{
+    public int getSelection(Scanner sc){
+        int selection=0;
+        boolean loop = true;
 
-        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number 1 - 4");
 
+    while (loop) {
         try {
             selection = Integer.parseInt(sc.nextLine());
-            System.out.println("Your selection is "  + selection);
-            
+
+            if (selection >=0 && selection < 5) { 
+                System.out.println("Valid Selection");
+                loop = false;
+            } else{
+                System.out.println("invalid range is 1 - 4");
+            }
+
         } catch (NumberFormatException nfe) {
             // nfe.printStackTrace();
-            System.out.println("Invalid input format");
+            // System.out.println("Invalid input format");
+            throw nfe;
         }
         finally{
             System.out.println("Statement inside finally block is executed");
         }
+    }
 
-        System.out.println("Statement outside try-catch-finally is executed");
+        return selection;
+    }
+    //Return integer 1 - 4 only, else loop
+}
+
+public class App {
+    public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+        
+        int selection = 0;
+        UI obj = new UI();
+
+        selection = obj.getSelection(sc);
+        System.out.println("User selection: " + selection);
 
     }
 }
