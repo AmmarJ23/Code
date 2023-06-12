@@ -18,12 +18,6 @@ public class App {
             if (choice.equals("1")) {
                 String tempName, tempId;
 
-                Student tempStudent = new Student();
-                System.out.println("Enter name: ");
-                tempName = s.nextLine();
-                System.out.println("Enter matric number: ");
-                tempId = s.nextLine();
-                tempStudent.newStd(stdList, tempName, tempId);
 
                 while(true){
                     System.out.println("[1] Register Course\n[2] Withdraw Course\n[3] Exit Student");

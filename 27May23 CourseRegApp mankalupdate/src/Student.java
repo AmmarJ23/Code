@@ -12,17 +12,7 @@ public class Student extends Person {
         this.ID = ID;
     }
 
-    public void newStd(ArrayList<Student> stdList, String name, String ID){
-        this.setName(name);
-        this.setID(ID);
-        stdList.add(this);
-
-        for(Student stdelement : stdList){
-            System.out.println(stdelement);
-        }
-    }
-
-    public void registerCourse(ArrayList<Course> courseList, ArrayList<Student> stdList) {
+    public void registerCourse(ArrayList<Course> courseList) {
         String cCode;
         Scanner s = new Scanner(System.in);
 
