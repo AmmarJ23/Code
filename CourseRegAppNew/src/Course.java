@@ -5,7 +5,6 @@ class Course {
     private String code;
     private ArrayList<Student> studList;
 
-
     public Course() {
         this.studList = new ArrayList<>();
     }

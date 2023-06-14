@@ -1,3 +1,3 @@
-public class LecturerController {
+public class LecturerController{
     
 }
