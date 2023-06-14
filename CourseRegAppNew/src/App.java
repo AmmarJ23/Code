@@ -17,6 +17,33 @@ public class App {
         sList.add(new Student("Charlie", "Thailand"));
     }
 
+    public static int login(ArrayList<Student> sList, ArrayList<Lecturer> lList, ArrayList<AcademicOfficer> aoList){
+
+        Scanner s = new Scanner(System.in);
+        String loginID = s.nextLine();
+
+
+        for (AcademicOfficer academicOfficer : aoList) {
+            if (academicOfficer.getID().equalsIgnoreCase(loginID)) {
+                return 1;
+            }
+        }
+
+        for (Student student : sList) {
+            if (student.getID().equalsIgnoreCase(loginID)) {
+                return 2;
+            }
+        }
+
+        for (Lecturer lecturer : lList) {
+            if (lecturer.getID().equalsIgnoreCase(loginID)) {
+                return 3;
+            }
+        }
+
+        return 0;
+    }
+
     public static void main(String[] args) throws Exception {
 
         boolean loop = true;
@@ -26,6 +53,7 @@ public class App {
             ArrayList<Student> studentList = new ArrayList<>();
             ArrayList<Course> courseList = new ArrayList<>();
             ArrayList<Lecturer> LecturerList = new ArrayList<>();
+            ArrayList<AcademicOfficer> = acadList = new ArrayList<>();
             StudentController sController = new StudentController(studentList, courseList);
             LecturerController lController = new LecturerController();
             AcademicOfficerController aoController = new AcademicOfficerController();
@@ -37,26 +65,26 @@ public class App {
 
             while (loop) {
 
-                System.out.println("Menu\n----\n[1] Student\n[2] Lecturer\n[3] Academic Officer\n[0] Exit");
-                System.out.print("=> ");
-                loginChoice = scanner.nextInt();
-
+                loginChoice = login(studentList, LecturerList, acadList);
+                
                 switch (loginChoice) {
+
                     case 0:
                         loop = false;
                         break;
 
                     case 1:
-                        sController.login();
+                        
                         break;
 
                     case 2:
-
+                        
                         break;
 
                     case 3:
+                        
                         break;
-
+                
                     default:
                         break;
                 }
