@@ -3,11 +3,11 @@ import java.util.ArrayList;
 class Course {
     private String name;
     private String code;
-    private ArrayList<Student> srList;
+    private ArrayList<Student> studList;
 
 
     public Course() {
-        this.srList = new ArrayList<>();
+        this.studList = new ArrayList<>();
     }
 
 
@@ -29,12 +29,12 @@ class Course {
 
 
     public void addStudent(Student me) {
-        srList.add(me);
+        studList.add(me);
     }
 
 
-    public ArrayList<Student> getSrList() {
-        return srList;
+    public ArrayList<Student> getStudList() {
+        return studList;
     }
 
 

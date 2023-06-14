@@ -2,22 +2,22 @@ import java.util.ArrayList;
 
 class Student extends Person{
     private String country;
-    private ArrayList<Course> mycList;
+    private ArrayList<Course> courseList;
 
 
     public Student(ArrayList<Course> mycList) {
-        this.mycList = mycList;
+        this.courseList = mycList;
     }
 
 
-    public Student(String name, String iD, ArrayList<Course> mycList) {
+    public Student(String name, String iD, ArrayList<Course> courseList) {
         super(name, iD);
-        this.mycList = mycList;
+        this.courseList = courseList;
     }
 
 
     public Student() {
-        this.mycList = new ArrayList<>();
+        this.courseList = new ArrayList<>();
     }
 
 
@@ -28,12 +28,12 @@ class Student extends Person{
     }
 
     public void registerCourse(Course c) {
-        this.mycList.add(c);
+        this.courseList.add(c);
     }
 
 
-    public ArrayList<Course> getMycList() {
-        return mycList;
+    public ArrayList<Course> getCourseList() {
+        return courseList;
     }
 
 

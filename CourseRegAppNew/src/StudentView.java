@@ -12,7 +12,7 @@ class StudentView {
     public void displayDetail(Student s) {
         System.out.println("name :" + s.getName());
         System.out.println("country :" + s.getCountry());
-        for (Course course : s.getMycList()) {
+        for (Course course : s.getCourseList()) {
             System.out.println(course.getName());
             System.out.println(course.getCode());
         }
