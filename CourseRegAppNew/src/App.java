@@ -19,20 +19,19 @@ public class App {
 
 
     public static void main(String[] args) throws Exception {
+
+        boolean loop = true;
+        int loginChoice = 0;
+
+       
+
         try (Scanner scanner = new Scanner(System.in)) {
             ArrayList<Student> studentList = new ArrayList<>();
             ArrayList<Course> courseList = new ArrayList<>();
+            ArrayList<Lecturer> LecturerList = new ArrayList<>();
             StudentController sController = new StudentController(studentList, courseList);
-
-
-
-
-
-            
-
-
+            LecturerController lController = new LecturerController();
             seed(studentList, courseList);
-
 
             System.out.println("\nTrace - initial student list");
             sController.displaystudentList();
@@ -40,37 +39,38 @@ public class App {
 
             sController.login();
 
+            while (loop) {
 
-            System.out.println("\nTrace - add 2 students then print list");
-            sController.addStudent();
-            sController.addStudent();
-            sController.displaystudentList();
+                System.out.println("Menu\n----\n[1] Student\n[2] Lecturer\n[3] Academic Officer\n[0] Exit");
+                loginChoice = scanner.nextInt();
 
+                switch (loginChoice) {
+                    case 0:
+                        loop = false;
+                        break;
 
-            System.out.println("\nTrace - add course"); // ie abu add 3 courses oop, se & dsa
-            sController.addCourse();
-            sController.addCourse();
-            sController.addCourse();
+                    case 1:
+                        sController.login();
+                        break;
 
+                    case 2:
+                        break;
 
-            System.out.println("\nTrace - print list after add courses");
-            sController.displaystudentList();
+                    case 3:
+                        break;
 
-
-            System.out.println("\nTrace - delete student");
-            sController.deleteStudent1();  //ie delete din
-
-
-            System.out.println("\nTrace - print list after delete student");
-            sController.displaystudentList();
-
-
-            System.out.println("\nTrace - print 1 student - search by name");
-            sController.displayStudent1();  //ie print sbu
+                    default:
+                        break;
+                }
 
 
-            System.out.println("\nTrace - print list - finale");
-            sController.displaystudentList();
+
+            }
+
         }
+
+
+
+
     }
 }

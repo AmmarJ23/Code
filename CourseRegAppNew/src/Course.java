@@ -11,10 +11,10 @@ class Course {
     }
 
 
-    public Course(String name, String kod) {
+    public Course(String name, String code) {
         this();
         this.name = name;
-        this.code = kod;
+        this.code = code;
     }
 
 
@@ -41,6 +41,5 @@ class Course {
     public String getCode() {
         return code;
     }
-
 
 }

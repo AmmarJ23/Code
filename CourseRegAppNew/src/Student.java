@@ -27,17 +27,6 @@ class Student extends Person{
         this.country = warga;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
     public void registerCourse(Course c) {
         this.mycList.add(c);
     }
@@ -51,7 +40,6 @@ class Student extends Person{
     public String getCountry() {
         return country;
     }
-
 
 }
 

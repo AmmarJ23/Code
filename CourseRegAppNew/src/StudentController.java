@@ -4,14 +4,14 @@ import java.util.Iterator;
 class StudentController {
     ArrayList<Student> studentList;
     ArrayList<Course> courseList;
-    Student me;
+    Student stud;
     StudentView studentView;
 
 
     public StudentController(ArrayList<Student> studentList, ArrayList<Course> courseList) {
         this.studentList = studentList;
         this.courseList = courseList;
-        this.me = null;
+        this.stud = null;
         this.studentView = new StudentView();
     }
 
@@ -20,7 +20,7 @@ class StudentController {
         if (findStudent("Login name : ") == null) {
             studentView.loginResult("Login failed. No student with such name found...");
         } else {
-            studentView.loginResult("Login success. You are :" + me.getName());
+            studentView.loginResult("Login success. You are :" + stud.getName());
         }
     }
 
@@ -29,11 +29,11 @@ class StudentController {
         String name = studentView.readName(message);
         for (Student student : studentList) {
             if (student.getName().equalsIgnoreCase(name)) {
-                this.me = student;
+                this.stud = student;
                 break;
             }
         }
-        return me;
+        return stud;
     }
 
 
@@ -114,9 +114,9 @@ class StudentController {
     public void addCourse() {
         findStudent("Add course - Student name");
         Course c = findCourse();
-        if ((this.me != null) && (c != null)) {
-            this.me.registerCourse(c);
-            c.addStudent(me);
+        if ((this.stud != null) && (c != null)) {
+            this.stud.registerCourse(c);
+            c.addStudent(stud);
         }
     }
 
