@@ -52,8 +52,6 @@ class StudentController {
     public void addStudent() {
         Student student = studentView.readStudentDetail();
         this.studentList.add(student);
-
-
     }
 
 
