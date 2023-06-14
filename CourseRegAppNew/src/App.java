@@ -29,6 +29,7 @@ public class App {
             StudentController sController = new StudentController(studentList, courseList);
             LecturerController lController = new LecturerController();
             AcademicOfficerController aoController = new AcademicOfficerController();
+            ArrayList<Person> personLoginList = new ArrayList<>();
             seed(studentList, courseList);
 
             // System.out.println("\nTrace - initial student list");
@@ -50,6 +51,7 @@ public class App {
                         break;
 
                     case 2:
+
                         break;
 
                     case 3:
