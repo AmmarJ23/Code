@@ -1,3 +1,3 @@
-public class Lecturer {
+public class Lecturer extends Person{
     
 }
