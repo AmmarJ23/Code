@@ -25,6 +25,12 @@ public class App {
             StudentController sController = new StudentController(studentList, courseList);
 
 
+
+
+
+            
+
+
             seed(studentList, courseList);
 
 
