@@ -15,7 +15,6 @@ class StudentController {
         this.studentView = new StudentView();
     }
 
-
     public void login() {
         if (findStudent("Login name : ") == null) {
             studentView.loginResult("Login failed. No student with such name found...");
