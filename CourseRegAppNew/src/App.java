@@ -53,7 +53,7 @@ public class App {
             ArrayList<Student> studentList = new ArrayList<>();
             ArrayList<Course> courseList = new ArrayList<>();
             ArrayList<Lecturer> LecturerList = new ArrayList<>();
-            ArrayList<AcademicOfficer> = acadList = new ArrayList<>();
+            ArrayList<AcademicOfficer> acadList = new ArrayList<>();
             StudentController sController = new StudentController(studentList, courseList);
             LecturerController lController = new LecturerController();
             AcademicOfficerController aoController = new AcademicOfficerController();
