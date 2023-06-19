@@ -55,4 +55,8 @@ public class Course {
         }
     }
 
+    public void removeStudent(Student student){
+        studList.remove(student);
+    }
+
 }
