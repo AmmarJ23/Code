@@ -28,14 +28,14 @@ public class Lecturer extends Person{
 
         //check if student is already registered to course
         for (Course c : courseList) {
-            if (c.getName().equalsIgnoreCase(regCode)) {    //find course code entered
+            if (c.getCode().equalsIgnoreCase(regCode)) {    //find course code entered
 
                 if (c.getLecturer() != null) {
                     if (c.getLecturer() == this) {
                         System.out.println(this.getName() + " is already teaching " + c.getName());
                     }
                     else{
-                        System.out.println(c.getLecturer() + " is teaching " + c.getName());
+                        System.out.println(c.getLecturer().getName() + " is teaching " + c.getName());
                     }
 
                 } else {

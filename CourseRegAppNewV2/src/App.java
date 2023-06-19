@@ -27,7 +27,7 @@ public class App {
 
 
         // Print the registered courses
-        System.out.println("Registered courses:");
+        System.out.println("\nRegistered courses:");
         student.displayRegCourses();
 
         // Print course info

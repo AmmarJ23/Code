@@ -37,9 +37,16 @@ public class Course {
     }
 
     public void displayInfo(){
-        System.out.println("Lecturer Name: " + lecturer.getName());
-        System.out.println("Lecturer ID: " + lecturer.getID() + "\n");
-        
+
+        System.out.println("\nCourse Information: " + this.getCode());
+
+        if (lecturer == null) {
+            System.out.println("Lecturer: None");
+        } else {
+            System.out.println("Lecturer Name: " + lecturer.getName());
+            System.out.println("Lecturer ID: " + lecturer.getID() + "\n");
+        }
+
         System.out.println("Students Registered to " + this.getCode() + ": " + this.getName());
         int i = 0;
         for (Student student : studList) {
