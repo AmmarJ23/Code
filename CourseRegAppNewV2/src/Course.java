@@ -6,10 +6,10 @@ public class Course {
     private Lecturer lecturer;
     private ArrayList<Student> studList;
     
-    public Course(String name, String code, ArrayList<Student> studList) {
+    public Course(String name, String code) {
         this.name = name;
         this.code = code;
-        this.studList = studList;
+        studList = new ArrayList<>();
     }
 
     public String getName() {

@@ -5,13 +5,14 @@ public class Student extends Person {
 
     private ArrayList <Course> regCourseList;
 
-    public Student(ArrayList<Course> regCourseList) {
-        this.regCourseList = regCourseList;
+    public Student() {
+        regCourseList = new ArrayList<>();
     }
 
-    public Student(String name, String iD, ArrayList<Course> regCourseList) {
+    public Student(String name, String iD) {
         super(name, iD);
-        this.regCourseList = regCourseList;
+        regCourseList = new ArrayList<>();
+
     }
 
     public void registerCourse(ArrayList <Course> courseList){
@@ -25,11 +26,12 @@ public class Student extends Person {
         //check if student is already registered to course
         boolean studReg = false;
         for (Course c : courseList) {
-            if (c.getName().equalsIgnoreCase(regCode)) {    //find course code entered
+            if (c.getCode().equalsIgnoreCase(regCode)) {    //find course code entered
 
                 for (Student st : c.getStudList()) {        //check if student is already registered in course
                     if (st.getID().equalsIgnoreCase(this.getID())) {
                         studReg = true;
+                        System.out.println(this.getName() + " is already registered to " + c.getName());
                     }
                 }
                 
@@ -38,6 +40,14 @@ public class Student extends Person {
                     regCourseList.add(c);
                 }
             }
+        }
+    }
+
+    public void displayRegCourses(){
+        int i = 0;
+        for (Course course : regCourseList) {
+            i++;
+            System.out.println(i + ". " + course.getCode() + ": " + course.getName());
         }
     }
 
