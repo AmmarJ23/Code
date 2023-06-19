@@ -11,7 +11,7 @@ public class App {
         courseList.add(course2);
 
         // Create a student
-        Student student = new Student("John Doe", "123456");
+        Student student = new Student("John Doe", "A001");
 
         //Create lecturers
         Lecturer l1 = new Lecturer("Ambrosia Jones", "S001");
