@@ -11,16 +11,28 @@ public class App {
         courseList.add(course2);
 
         // Create a student
-        ArrayList<Course> regCourseList = new ArrayList<>();
         Student student = new Student("John Doe", "123456");
+
+        //Create lecturers
+        Lecturer l1 = new Lecturer("Ambrosia Jones", "S001");
+        Lecturer l2 = new Lecturer("Bartholomew Smith", "S002");
 
         // Register the course
         student.registerCourse(courseList);        
         student.registerCourse(courseList);
 
+        // Teach course
+        l1.teachCourse(courseList);
+        l2.teachCourse(courseList);
+
 
         // Print the registered courses
         System.out.println("Registered courses:");
         student.displayRegCourses();
+
+        // Print course info
+        course1.displayInfo();
+        course2.displayInfo();
+
     }
 }

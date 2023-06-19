@@ -5,13 +5,14 @@ public class Lecturer extends Person{
 
     private ArrayList <Course> courseTaught;
 
-    public Lecturer(ArrayList<Course> courseTaught) {
-        this.courseTaught = courseTaught;
+    public Lecturer() {
+        courseTaught = new ArrayList<>();
+
     }
 
-    public Lecturer(String name, String iD, ArrayList<Course> courseTaught) {
+    public Lecturer(String name, String iD) {
         super(name, iD);
-        this.courseTaught = courseTaught;
+        courseTaught = new ArrayList<>();
     }
 
     public ArrayList<Course> getCourseTaught() {

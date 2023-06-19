@@ -36,4 +36,16 @@ public class Course {
         this.lecturer = lecturer;
     }
 
+    public void displayInfo(){
+        System.out.println("Lecturer Name: " + lecturer.getName());
+        System.out.println("Lecturer ID: " + lecturer.getID() + "\n");
+        
+        System.out.println("Students Registered to " + this.getCode() + ": " + this.getName());
+        int i = 0;
+        for (Student student : studList) {
+            i++;
+            System.out.println(i + ". " + student.getName() + " (" + student.getID() + ")");
+        }
+    }
+
 }
