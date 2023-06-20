@@ -117,11 +117,46 @@ public class AcademicOfficer extends Person{
     }
 
     public void addCourse(ArrayList <Course> courseList){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter course name: ");
+        String courseName = s.nextLine();
+        System.out.println("Enter course code: ");
+        String courseCode = s.nextLine();
 
+        boolean courseReg = false;
+        for (Course course : courseList) {
+            if (course.getCode().equalsIgnoreCase(courseCode)) {
+                System.out.println("Another course already registered with the given course code");
+                courseReg = true;
+                break;
+            }
+        }
+
+        if (!courseReg) {
+            courseList.add(new Course(courseName, courseCode));
+        }
     }
 
     public void removeCourse(ArrayList <Course> courseList){
-         
+        Course toBeRemoved = null;
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter course code: ");
+        String courseCode = s.nextLine();
+
+        boolean courseFound = false;
+        for (Course course : courseList) {
+            if (course.getCode().equalsIgnoreCase(courseCode)) {
+                courseFound = true;
+                toBeRemoved = course;
+                break;
+            }
+        }
+
+        if (courseFound) {
+            courseList.remove(toBeRemoved);
+        } else {
+            System.out.println("Course not found with the given course code");
+        }
     }
 
     public void displayCourseList(ArrayList <Course> courseList){
