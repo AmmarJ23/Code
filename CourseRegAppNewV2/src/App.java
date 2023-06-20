@@ -3,32 +3,53 @@ import java.util.Scanner;
 
 public class App {
 
-    public int login(ArrayList <Student> studList, ArrayList <Lecturer> lecturerList, ArrayList <AcademicOfficer> acadList){
+    public static Person login(ArrayList <Student> studList, ArrayList <Lecturer> lecturerList, ArrayList <AcademicOfficer> acadList){
         Scanner s = new Scanner(System.in);
         System.out.println("Enter User ID:");
         String logID = s.nextLine();
-        System.out.println("Enter User Password:");
-        String logPass = s.nextLine();
+        // System.out.println("Enter User Password:");
+        // String logPass = s.nextLine();
 
         for (Student student : studList) {
             if (student.getID().equalsIgnoreCase(logID)) {
-                return 1;
+                return student;
             }
         }
 
         for (Lecturer lecturer : lecturerList) {
             if (lecturer.getID().equalsIgnoreCase(logID)) {
-                return 2;
+                return lecturer;
             }
         }
 
         for (AcademicOfficer academicOfficer : acadList) {
             if (academicOfficer.getID().equalsIgnoreCase(logID)) {
-                return 3;
+                return academicOfficer;
             }
         }
 
-        return 0;
+        return null;
+    }
+
+    public static int displayMenu(Person menuChoice) {
+        if (menuChoice == null) {
+            System.out.println("User not found");
+        } else {
+            System.out.println("-----------------\nLogged in as " + menuChoice.getName() + "\n-----------------");
+            if (menuChoice instanceof Student) {
+                System.out.println("[1] Register Course\n[2] Drop Course\n[3] Display Registered Courses\n[0] Exit");
+            } else if (menuChoice instanceof Lecturer) {
+                System.out.println("[1] Choose Course To Teach\n[2] Stop Teaching Course\n[0] Exit");
+            } else {
+                System.out.println("[1] Add Student\n[2] Remove Student\n[3] Add Lecturer\n[4] Remove Lecturer\n[5] Add Course\n[6] Remove Course\n[0] Exit");
+            }
+
+            Scanner s =  new Scanner(System.in);
+            System.out.print("=> ");
+            return s.nextInt();
+        }
+
+        return -1;
     }
 
     public static void main(String[] args) throws Exception {
@@ -55,40 +76,107 @@ public class App {
         lecturerList.add(l1);
         lecturerList.add(l2);
 
-
-        //Create Academic Officers
-        AcademicOfficer a1 = new AcademicOfficer("Dorothy Eisenward", "S101");
-        acadList.add(a1);
         
-        // Register the course
-        s1.registerCourse(courseList);        
-        s2.registerCourse(courseList);
+        
+        //Create Academic Officers
+        AcademicOfficer a1 = new AcademicOfficer("Dorothy Eisenhoward", "S101");
+        acadList.add(a1);
 
-        // Teach course
-        l1.teachCourse(courseList);
-        l2.teachCourse(courseList);
+        //Create boolean for looping
+        boolean loop = true;
+        
+        // // Register the course
+        // s1.registerCourse(courseList);        
+        // s2.registerCourse(courseList);
+
+        // // Teach course
+        // l1.teachCourse(courseList);
+        // l2.teachCourse(courseList);
 
 
-        // Print the registered courses
-        System.out.println("\nRegistered courses:");
-        s1.displayRegCourses();
+        // // Print the registered courses
+        // System.out.println("\nRegistered courses:");
+        // s1.displayRegCourses();
 
-        // Print course info
-        course1.displayInfo();
-        course2.displayInfo();
+        // // Print course info
+        // course1.displayInfo();
+        // course2.displayInfo();
 
-        // Remove student
-        a1.removeStudent(studentList, courseList);
+        // // Remove student
+        // a1.removeStudent(studentList, courseList);
 
-        // Print course info after student removal
-        course1.displayInfo();
+        // // Print course info after student removal
+        // course1.displayInfo();
 
-        // 1. display login - enter id & password(?) - pass all list
+        // 1. display login - enter id pass all list
         // 2. Menu - according to user type
         // 3. do stuff
         // 4. exit
 
+        Person menuChoice = login(studentList, lecturerList, acadList);
 
+        int actionChoice = displayMenu(menuChoice);
 
+        if (actionChoice >=0) {
+
+            if (menuChoice instanceof Student) {
+
+                Student studTemp = (Student) menuChoice;
+
+                if (actionChoice <= 3) {
+                    switch (actionChoice) {
+                        case 0:
+                            loop = false;
+                            break;
+
+                        case 1:
+                            studTemp.registerCourse(courseList);
+                            break;
+
+                        case 2:
+                            studTemp.dropCourse(courseList);
+                            break;
+
+                        case 3:
+                            studTemp.displayRegCourses();
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                }
+        
+            } else  if (menuChoice instanceof Lecturer){
+
+                Lecturer lectTemp = (Lecturer) menuChoice;
+
+                if (actionChoice <= 2) {
+                    switch (actionChoice) {
+                        case 0:
+                            loop = false;
+                            break;
+
+                        case 1:
+                            lectTemp.teachCourse(courseList);
+                            break;
+
+                        case 2:
+                            lectTemp.stopTeach(courseList);
+                            break;
+
+                    
+                        default:
+                            break;
+                    }
+                }
+                
+            } else {
+
+            }
+        } else {
+            System.out.println("Invalid Input");
+        }
+
+        
     }
 }

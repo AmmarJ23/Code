@@ -20,13 +20,13 @@ public class Lecturer extends Person{
     }
 
     public void teachCourse(ArrayList <Course> courseList){
-        //get course code to be registered to student
+        //get course code to be taught by lecturer
         Scanner s = new Scanner(System.in);
         System.out.print("Enter course code: ");
         String regCode = s.next();
         s.nextLine();
 
-        //check if student is already registered to course
+        //check if lecturer is teaching course
         for (Course c : courseList) {
             if (c.getCode().equalsIgnoreCase(regCode)) {    //find course code entered
 
@@ -39,12 +39,43 @@ public class Lecturer extends Person{
                     }
 
                 } else {
-                    c.addLecturer(this);
+                    c.setLecturer(this);
                     courseTaught.add(c);
                 }
 
             }
         }
     }
-    
+
+    public void stopTeach(ArrayList <Course> courseList){
+        //get course code to stop teaching
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter course code: ");
+        String regCode = s.next();
+        s.nextLine();
+
+        //check if lecturer is teaching course
+        for (Course c : courseList) {
+            if (c.getCode().equalsIgnoreCase(regCode)) {    //find course code entered
+
+                if (c.getLecturer() != null) {
+                    if (c.getLecturer() == this) {
+                        //remove lecturer from course
+                        c.setLecturer(null);
+
+                        //remove course from lecturer
+                        courseTaught.remove(c);
+                    }
+                    else{
+                        System.out.println(c.getLecturer().getName() + " is teaching " + c.getName());
+                    }
+
+                } else {
+                    c.setLecturer(this);
+                    courseTaught.add(c);
+                }
+
+            }
+        }
+    }    
 }

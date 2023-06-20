@@ -27,12 +27,12 @@ public class Course {
     public Lecturer getLecturer() {
         return lecturer;
     }
-
+    
     public void addStudent(Student student){
         studList.add(student);
     }
 
-    public void addLecturer(Lecturer lecturer){
+    public void setLecturer(Lecturer lecturer){
         this.lecturer = lecturer;
     }
 
