@@ -5,10 +5,14 @@ public class App {
 
     public static Person login(ArrayList <Student> studList, ArrayList <Lecturer> lecturerList, ArrayList <AcademicOfficer> acadList){
         Scanner s = new Scanner(System.in);
-        System.out.println("Enter User ID:");
+        System.out.println("Enter User ID (0 to exit):");
         String logID = s.nextLine();
         // System.out.println("Enter User Password:");
         // String logPass = s.nextLine();
+
+        if (logID.equals("000")) {
+            return null;
+        }
 
         for (Student student : studList) {
             if (student.getID().equalsIgnoreCase(logID)) {
@@ -80,7 +84,8 @@ public class App {
         acadList.add(a1);
 
         //Create boolean for looping
-        boolean loop = true;
+        boolean actionLoop = true;
+        boolean loginLoop  = true;
         
         // // Register the course
         // s1.registerCourse(courseList);        
@@ -110,124 +115,135 @@ public class App {
         // 3. do stuff
         // 4. exit
 
-        while (loop) {
-
+        while (loginLoop) {
             Person menuChoice = login(studentList, lecturerList, acadList);
 
-            int actionChoice = displayMenu(menuChoice);
-
-            if (actionChoice >=0) {
-
-                if (menuChoice instanceof Student) {
-
-                    Student studTemp = (Student) menuChoice;
-
-                    if (actionChoice <= 3) {
-                        switch (actionChoice) {
-                            case 0:
-                                loop = false;
-                                break;
-
-                            case 1:
-                                studTemp.registerCourse(courseList);
-                                break;
-
-                            case 2:
-                                studTemp.dropCourse(courseList);
-                                break;
-
-                            case 3:
-                                studTemp.displayRegCourses();
-                                break;
-                        
-                            default:
-                                break;
-                        }
-                    }
-            
-                } else  if (menuChoice instanceof Lecturer){
-
-                    Lecturer lectTemp = (Lecturer) menuChoice;
-
-                    if (actionChoice <= 3) {
-                        switch (actionChoice) {
-                            case 0:
-                                loop = false;
-                                break;
-
-                            case 1:
-                                lectTemp.teachCourse(courseList);
-                                break;
-
-                            case 2:
-                                lectTemp.stopTeach(courseList);
-                                break;
-
-                            case 3:
-                                lectTemp.displayTaughtCourses();
-                                break;
-
-                            default:
-                                break;
-                        }
-                    }
-                    
-                } else {
-                    AcademicOfficer acadTemp = (AcademicOfficer) menuChoice;
-
-                    if (actionChoice <= 9) {
-                        switch (actionChoice) {
-                            case 0:
-                                loop = false;
-                                break;
-
-                            //Student
-                            case 1: 
-                                acadTemp.addStudent(studentList);
-                                break;
-
-                            case 2:
-                                acadTemp.removeStudent(studentList, courseList);
-                                break;
-
-                            case 3:
-                                acadTemp.displayStudentList(studentList);
-                                break;
-
-                            //Lecturer
-                            case 4:
-                                acadTemp.addLecturer(lecturerList);
-                                break;
-
-                            case 5:
-                                acadTemp.removeCourse(courseList);
-                                break;
-
-                            case 6:
-                                acadTemp.displayLecturerList(lecturerList);
-                                break;
-
-                            //Course
-                            case 7:
-                                acadTemp.addCourse(courseList);
-                                break;
-
-                            case 8:
-                                acadTemp.removeCourse(courseList);
-                                break;
-
-                            case 9:
-                                acadTemp.displayCourseList(courseList);
-                                break;
-                        
-                            default:
-                                break;
-                        }
-                    }
-                }
+            if (menuChoice != null) {
+                actionLoop = true;
             } else {
-                System.out.println("Invalid Input");
+                loginLoop = false;
+                actionLoop = false;
+            }
+
+            while (actionLoop) {
+
+                int actionChoice = displayMenu(menuChoice);
+
+                if (actionChoice >=0) {
+
+                    if (menuChoice instanceof Student) {
+
+                        Student studTemp = (Student) menuChoice;
+
+                        if (actionChoice <= 3) {
+                            switch (actionChoice) {
+                                case 0:
+                                    actionLoop = false;
+                                    break;
+
+                                case 1:
+                                    studTemp.registerCourse(courseList);
+                                    break;
+
+                                case 2:
+                                    studTemp.dropCourse(courseList);
+                                    break;
+
+                                case 3:
+                                    studTemp.displayRegCourses();
+                                    break;
+                            
+                                default:
+                                    break;
+                            }
+                        }
+                
+                    } else  if (menuChoice instanceof Lecturer){
+
+                        Lecturer lectTemp = (Lecturer) menuChoice;
+
+                        if (actionChoice <= 3) {
+                            switch (actionChoice) {
+                                case 0:
+                                    actionLoop = false;
+                                    break;
+
+                                case 1:
+                                    lectTemp.teachCourse(courseList);
+                                    break;
+
+                                case 2:
+                                    lectTemp.stopTeach(courseList);
+                                    break;
+
+                                case 3:
+                                    lectTemp.displayTaughtCourses();
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                        }
+                        
+                    } else {
+                        AcademicOfficer acadTemp = (AcademicOfficer) menuChoice;
+
+                        if (actionChoice <= 9) {
+                            switch (actionChoice) {
+                                case 0:
+                                    actionLoop = false;
+                                    break;
+
+                                //Student
+                                case 1: 
+                                    acadTemp.addStudent(studentList);
+                                    break;
+
+                                case 2:
+                                    acadTemp.removeStudent(studentList, courseList);
+                                    break;
+
+                                case 3:
+                                    acadTemp.displayStudentList(studentList);
+                                    break;
+
+                                //Lecturer
+                                case 4:
+                                    acadTemp.addLecturer(lecturerList);
+                                    break;
+
+                                case 5:
+                                    acadTemp.removeCourse(courseList);
+                                    break;
+
+                                case 6:
+                                    acadTemp.displayLecturerList(lecturerList);
+                                    break;
+
+                                //Course
+                                case 7:
+                                    acadTemp.addCourse(courseList);
+                                    break;
+
+                                case 8:
+                                    acadTemp.removeCourse(courseList);
+                                    break;
+
+                                case 9:
+                                    acadTemp.displayCourseList(courseList);
+                                    break;
+                            
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                } else {
+                    System.out.println("Invalid Input");
+                }
             }
         }
+
+        
     }
 }
