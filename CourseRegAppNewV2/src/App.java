@@ -182,18 +182,20 @@ public class App {
                             loop = false;
                             break;
 
-                        case 1:
-                            
+                        //Student
+                        case 1: 
+                            acadTemp.addStudent(studentList);
                             break;
 
                         case 2:
-                            
+                            acadTemp.removeStudent(studentList, courseList);
                             break;
 
                         case 3:
                             
                             break;
 
+                        //Lecturer
                         case 4:
                             
                             break;
@@ -206,12 +208,13 @@ public class App {
                             
                             break;
 
+                        //Course
                         case 7:
-                            
+                            acadTemp.addCourse(courseList);
                             break;
 
                         case 8:
-                            
+                            acadTemp.removeCourse(courseList);
                             break;
 
                         case 9:

@@ -56,6 +56,8 @@ public class AcademicOfficer extends Person{
         }
     }
 
+    public void displayStudentList(ArrayList <Student> studList)
+
 
 
     public void addCourse(ArrayList <Course> courseList){
