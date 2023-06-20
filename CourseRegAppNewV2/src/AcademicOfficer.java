@@ -27,7 +27,7 @@ public class AcademicOfficer extends Person{
     }
 
     public void removeStudent(ArrayList<Student> studList, ArrayList<Course> courseList) {
-        Student tbRemoved = null;
+        Student toBeRemoved = null;
         Scanner s = new Scanner(System.in);
         System.out.println("Enter student ID: ");
         String studID = s.nextLine();
@@ -36,7 +36,7 @@ public class AcademicOfficer extends Person{
         for (Student student : studList) {
             if (student.getID().equalsIgnoreCase(studID)) {
                 studFound = true;
-                tbRemoved = student;
+                toBeRemoved = student;
                 break;
             }
         }
@@ -46,19 +46,75 @@ public class AcademicOfficer extends Person{
             for (Course course : courseList) {
                 ArrayList<Student> studentsToRemove = new ArrayList<>();
                 for (Student student : course.getStudList()) {
-                    if (student == tbRemoved) {
+                    if (student == toBeRemoved) {
                         studentsToRemove.add(student);
                     }
                 }
                 course.getStudList().removeAll(studentsToRemove);
             }
-            studList.remove(tbRemoved);
+            studList.remove(toBeRemoved);
         }
     }
 
-    public void displayStudentList(ArrayList <Student> studList)
+    public void displayStudentList(ArrayList <Student> studList){
+        System.out.println("\n------------\nStudent List\n------------");
+        System.out.printf("%-25s %-10s", "Name", "Matric No.");
+        for (Student student : studList) {
+            System.out.printf("%-25s %-10s", student.getName(), student.getID());
+        }
+    }
 
 
+    public void addLecturer(ArrayList <Lecturer> lecturerList){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter lecturer name: ");
+        String lecturerName = s.nextLine();
+        System.out.println("Enter staff number: ");
+        String staffNumber = s.nextLine();
+
+        boolean lecturerAdded = false;
+        for (Lecturer lecturer : lecturerList) {
+            if (lecturer.getID().equalsIgnoreCase(staffNumber)) {
+                System.out.println("Another lecturer already registered with the given staff number");
+                lecturerAdded = true;
+                break;
+            }
+        }
+
+        if (!lecturerAdded) {
+            lecturerList.add(new Lecturer(lecturerName, staffNumber));
+        }
+    }
+
+    public void removeLecturer(ArrayList <Lecturer> lecturerList){
+        Lecturer toBeRemoved = null;
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter staff number: ");
+        String staffNumber = s.nextLine();
+
+        boolean lecturerFound = false;
+        for (Lecturer lecturer : lecturerList) {
+            if (lecturer.getID().equalsIgnoreCase(staffNumber)) {
+                lecturerFound = true;
+                toBeRemoved = lecturer;
+                break;
+            }
+        }
+
+        if (lecturerFound) {
+            lecturerList.remove(toBeRemoved);
+        } else {
+            System.out.println("Lecturer not found with the given staff number");
+        }
+    }
+
+    public void displayLecturerList(ArrayList <Lecturer> lecturerList){
+        System.out.println("\n-------------\nLecturer List\n-------------");
+        System.out.printf("%-25s %-10s", "Name", "Staff No.");
+        for (Lecturer lecturer : lecturerList) {
+            System.out.printf("%-25s %-10s", lecturer.getName(), lecturer.getID());
+        }
+    }
 
     public void addCourse(ArrayList <Course> courseList){
 
@@ -66,5 +122,13 @@ public class AcademicOfficer extends Person{
 
     public void removeCourse(ArrayList <Course> courseList){
          
+    }
+
+    public void displayCourseList(ArrayList <Course> courseList){
+        System.out.println("\n-----------\nCourse List\n-----------");
+        System.out.printf("%-40s %-11s", "Name", "Course Code");
+        for (Course course : courseList) {
+            System.out.printf("%-40s %-11s", course.getName(), course.getCode());
+        }
     }
 }
