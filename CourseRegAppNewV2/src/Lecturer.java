@@ -77,5 +77,13 @@ public class Lecturer extends Person{
 
             }
         }
-    }    
+    }
+    
+    public void displayTaughtCourses(){
+        int i = 0;
+        for (Course course : courseTaught) {
+            i++;
+            System.out.println(i + ". " + course.getCode() + ": " + course.getName());
+        }
+    }
 }

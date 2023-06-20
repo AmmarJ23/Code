@@ -39,9 +39,9 @@ public class App {
             if (menuChoice instanceof Student) {
                 System.out.println("[1] Register Course\n[2] Drop Course\n[3] Display Registered Courses\n[0] Exit");
             } else if (menuChoice instanceof Lecturer) {
-                System.out.println("[1] Choose Course To Teach\n[2] Stop Teaching Course\n[0] Exit");
+                System.out.println("[1] Choose Course To Teach\n[2] Stop Teaching Course\n[3] Display Taught Courses\n[0] Exit");
             } else {
-                System.out.println("[1] Add Student\n[2] Remove Student\n[3] Add Lecturer\n[4] Remove Lecturer\n[5] Add Course\n[6] Remove Course\n[0] Exit");
+                System.out.println("[1] Add Student\n[2] Remove Student\n[3] Display All Students\n[4] Add Lecturer\n[5] Remove Lecturer\n[6] Display All Lecturers\n[7] Add Course\n[8] Remove Course\n[9] Display All Courses\n[0] Exit");
             }
 
             Scanner s =  new Scanner(System.in);
@@ -150,7 +150,7 @@ public class App {
 
                 Lecturer lectTemp = (Lecturer) menuChoice;
 
-                if (actionChoice <= 2) {
+                if (actionChoice <= 3) {
                     switch (actionChoice) {
                         case 0:
                             loop = false;
@@ -164,14 +164,64 @@ public class App {
                             lectTemp.stopTeach(courseList);
                             break;
 
-                    
+                        case 3:
+                            lectTemp.displayTaughtCourses();
+                            break;
+
                         default:
                             break;
                     }
                 }
                 
             } else {
+                AcademicOfficer acadTemp = (AcademicOfficer) menuChoice;
 
+                if (actionChoice <= 9) {
+                    switch (actionChoice) {
+                        case 0:
+                            loop = false;
+                            break;
+
+                        case 1:
+                            
+                            break;
+
+                        case 2:
+                            
+                            break;
+
+                        case 3:
+                            
+                            break;
+
+                        case 4:
+                            
+                            break;
+
+                        case 5:
+                            
+                            break;
+
+                        case 6:
+                            
+                            break;
+
+                        case 7:
+                            
+                            break;
+
+                        case 8:
+                            
+                            break;
+
+                        case 9:
+                            
+                            break;
+                    
+                        default:
+                            break;
+                    }
+                }
             }
         } else {
             System.out.println("Invalid Input");
