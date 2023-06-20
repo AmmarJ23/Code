@@ -58,9 +58,9 @@ public class AcademicOfficer extends Person{
 
     public void displayStudentList(ArrayList <Student> studList){
         System.out.println("\n------------\nStudent List\n------------");
-        System.out.printf("%-25s %-10s", "Name", "Matric No.");
+        System.out.printf("%-25s %-10s\n", "Name", "Matric No.");
         for (Student student : studList) {
-            System.out.printf("%-25s %-10s", student.getName(), student.getID());
+            System.out.printf("%-25s %-10s\n", student.getName(), student.getID());
         }
     }
 
@@ -110,9 +110,9 @@ public class AcademicOfficer extends Person{
 
     public void displayLecturerList(ArrayList <Lecturer> lecturerList){
         System.out.println("\n-------------\nLecturer List\n-------------");
-        System.out.printf("%-25s %-10s", "Name", "Staff No.");
+        System.out.printf("%-25s %-10s\n", "Name", "Staff No.");
         for (Lecturer lecturer : lecturerList) {
-            System.out.printf("%-25s %-10s", lecturer.getName(), lecturer.getID());
+            System.out.printf("%-25s %-10s\n", lecturer.getName(), lecturer.getID());
         }
     }
 
@@ -137,7 +137,7 @@ public class AcademicOfficer extends Person{
         }
     }
 
-    public void removeCourse(ArrayList <Course> courseList){
+    public void removeCourse(ArrayList <Course> courseList, ArrayList <Student> studList){
         Course toBeRemoved = null;
         Scanner s = new Scanner(System.in);
         System.out.println("Enter course code: ");
@@ -154,6 +154,13 @@ public class AcademicOfficer extends Person{
 
         if (courseFound) {
             courseList.remove(toBeRemoved);
+            for (Student student : studList) {
+                for (Course courseReg : student.getRegCourseList()) {
+                    if (courseReg == toBeRemoved) {
+                        student.getRegCourseList().remove(courseReg);
+                    }
+                }
+            }
         } else {
             System.out.println("Course not found with the given course code");
         }
@@ -161,9 +168,9 @@ public class AcademicOfficer extends Person{
 
     public void displayCourseList(ArrayList <Course> courseList){
         System.out.println("\n-----------\nCourse List\n-----------");
-        System.out.printf("%-40s %-11s", "Name", "Course Code");
+        System.out.printf("%-40s %-11s\n", "Name", "Course Code");
         for (Course course : courseList) {
-            System.out.printf("%-40s %-11s", course.getName(), course.getCode());
+            System.out.printf("%-40s %-11s\n", course.getName(), course.getCode());
         }
     }
 }

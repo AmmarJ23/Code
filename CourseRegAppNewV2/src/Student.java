@@ -15,6 +15,10 @@ public class Student extends Person {
 
     }
 
+    public ArrayList <Course> getRegCourseList(){
+        return regCourseList;
+    }
+
     public void registerCourse(ArrayList <Course> courseList){
 
         //get course code to be registered to student
@@ -43,34 +47,34 @@ public class Student extends Person {
         }
     }
 
-    public void dropCourse(ArrayList <Course> courseList){
-        //get course code to be dropped
+    public void dropCourse(ArrayList<Course> courseList) {
+        // Get course code to be dropped
         Scanner s = new Scanner(System.in);
         System.out.print("Enter course code: ");
         String regCode = s.next();
         s.nextLine();
 
-        //check if student is already registered to course
+        // Check if student is already registered to the course
         boolean studReg = false;
         for (Course c : courseList) {
-            if (c.getCode().equalsIgnoreCase(regCode)) {    //find course code entered
-
-                for (Student st : c.getStudList()) {        //check if student is already registered in course
-                    if (st.getID().equalsIgnoreCase(this.getID())) {
-                        studReg = true;
-                        //remove course from student
-                        regCourseList.remove(c);
-                        //remove student from course
-                        c.removeStudent(this);
-                    }
-                }
-                
-                if (studReg == false) { //if student is not registered, inform student
-                    System.out.println("Student is not registered to " + c.getName());
+            if (c.getCode().equalsIgnoreCase(regCode)) {    // Find course with matching code
+                if (c.getStudList().contains(this)) {       // Check if student is registered in the course
+                    // Remove the course from the student's registered courses
+                    regCourseList.remove(c);
+                    // Remove the student from the course's student list
+                    c.removeStudent(this);
+                    studReg = true;
                 }
             }
+
+            if (!studReg) {
+            System.out.println("Student is not registered to " + c.getName());
         }
+        }
+
+        
     }
+
 
     public void displayRegCourses(){
         int i = 0;

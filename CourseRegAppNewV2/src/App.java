@@ -213,7 +213,7 @@ public class App {
                                     break;
 
                                 case 5:
-                                    acadTemp.removeCourse(courseList);
+                                    acadTemp.removeLecturer(lecturerList);
                                     break;
 
                                 case 6:
@@ -226,7 +226,7 @@ public class App {
                                     break;
 
                                 case 8:
-                                    acadTemp.removeCourse(courseList);
+                                    acadTemp.removeCourse(courseList, studentList);
                                     break;
 
                                 case 9:
