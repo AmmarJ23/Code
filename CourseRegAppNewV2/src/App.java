@@ -80,7 +80,7 @@ public class App {
         lecturerList.add(l2);
 
         //Create Academic Officers
-        AcademicOfficer a1 = new AcademicOfficer("Dorothy Eisenhoward", "S101");
+        AcademicOfficer a1 = new AcademicOfficer("Dorothy Eisenhower", "S101");
         acadList.add(a1);
 
         //Create boolean for looping
@@ -243,7 +243,5 @@ public class App {
                 }
             }
         }
-
-        
     }
 }
