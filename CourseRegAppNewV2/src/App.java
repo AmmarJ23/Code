@@ -62,6 +62,8 @@ public class App {
         ArrayList <Student> studentList = new ArrayList<>();
         ArrayList <AcademicOfficer> acadList = new ArrayList<>();
         ArrayList <Lecturer> lecturerList = new ArrayList<>();
+
+
         Course course1 = new Course("Introduction to Computer Science", "CSC101");
         Course course2 = new Course("Linear Algebra", "MAT202");
         courseList.add(course1);
@@ -87,33 +89,6 @@ public class App {
         boolean actionLoop = true;
         boolean loginLoop  = true;
         
-        // // Register the course
-        // s1.registerCourse(courseList);        
-        // s2.registerCourse(courseList);
-
-        // // Teach course
-        // l1.teachCourse(courseList);
-        // l2.teachCourse(courseList);
-
-
-        // // Print the registered courses
-        // System.out.println("\nRegistered courses:");
-        // s1.displayRegCourses();
-
-        // // Print course info
-        // course1.displayInfo();
-        // course2.displayInfo();
-
-        // // Remove student
-        // a1.removeStudent(studentList, courseList);
-
-        // // Print course info after student removal
-        // course1.displayInfo();
-
-        // 1. display login - enter id pass all list
-        // 2. Menu - according to user type
-        // 3. do stuff
-        // 4. exit
 
         while (loginLoop) {
             Person menuChoice = login(studentList, lecturerList, acadList);
